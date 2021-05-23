@@ -111,8 +111,9 @@ def login(request):
                 if 'next' in params:
                     nextPage = params['next']
                     return redirect(nextPage)
+
             except:
-                pass
+                return redirect('dashboard')
         else:
             messages.error(request, 'Invalid login credentials')
             return redirect('login')
